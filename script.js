@@ -1,41 +1,87 @@
-const rock = (1);      //assign rock paper and scissors to a value
-const paper = (2);
-const scissors = (3);
 
-const btn1 = document.querySelector("btn1");
-const btn2 = document.querySelector("btn2");
-const btn3 = document.querySelector("btn3");
 
 
 //randomly choose between one of the values
-let randomNum = Math.floor(Math.random() * (4 - 1)) + 1;
+let humanScore = 0;
+let computerScore = 0;
+
+let randomNum = Math.floor(Math.random() * (3 - 0)) + 1;
+
     
 
-
-function numConvert() {           //assign the number to back to the word
+function numConvert() {           //assign the random number to back to a word
     let result;
     if (randomNum === 1) {
-        result = "Rock";
+        result = "rock";
     }else if (randomNum === 2) {
-        result = "Paper";
+        result = "paper";
     }else if (randomNum === 3) {
-        result = "Scissors";
+        result = "scissors";
     }
     return result;
 }
+console.log(numConvert());
 
-let human = prompt("r, p, s")
+let human = prompt("rock, paper, scissors");
 
-function getHumanChoice() { 
-    result = "";                        //get the user to type there response
-    if (human = "r"){
-        result = "you chose rock";
-    }else if (human = "p"){
-        result ="you chose paper";
-    }else if (human = "s") {
-        result = "you chose scissors";
+function getHumanChoice() {
+                                            //get the user to type there response
+    if (human.toLowerCase() === "rock"){
+        alert("you chose rock");
+    }else if (human.toLowerCase() === "paper"){
+        alert("you chose paper");
+    }else if (human.toLowerCase() === "scissors") {
+        alert("you chose scissors");
+    }
+    return human;
+}
+
+//console.log(getHumanChoice());
+
+const humanSelection = getHumanChoice();
+const computerSelection = numConvert();
+
+
+ //compare the output of the 2 functions
+function playRound(humanSelection, computerSelection) { 
+    let result;
+    if (humanSelection == "rock" && computerSelection == "rock") {
+        result = "tie";
+    }else if (humanSelection == "rock"  && computerSelection == "scissors" ) {
+        result = "you win";
+    }else if (humanSelection == "paper" && computerSelection == "rock") {
+        result = "you win";
+    }else if (humanSelection == "scissors" && computerSelection == "paper") {
+        result = "you win";
+    }else if (humanSelection == "paper" && computerSelection == "scissors") {
+        result = "you lose";
+    }else if (humanSelection == "rock" && computerSelection == "paper") {
+        result = "you lose";
+    }else if (humanSelection == "scissors" && computerSelection == "rock") {
+        result = "you lose";
+    }else if (humanSelection == "paper" && computerSelection == "paper") {
+        result = "tie";
+    }else if (humanSelection == "scissors" && computerSelection == "scissors"){
+        result = "tie"; 
     }
     return result;
 }
+console.log(playRound(humanSelection, computerSelection));
 
-console.log(getHumanChoice());
+
+let round = playRound();
+
+function scoreBoard(round) {
+    let results; 
+    if (round === "tie") {
+        results = "no points";
+    }else if (round == "you win") {
+        humanScore++;
+    }else if (round == "you lose") {
+        computerScore++;
+    }  
+    return results;
+}
+console.log(scoreBoard(round));
+console.log(humanScore);
+console.log(computerScore);
