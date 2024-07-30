@@ -71,17 +71,20 @@ console.log(playRound(humanSelection, computerSelection));
 
 var result = playRound(humanSelection, computerSelection);
 
-function playerScore(result){
+function playerScore(result){                   //decides between who won and who lost
     if (result == "you win") {
         humanScore++;
     }else (result == "you lose")
     computerScore++;
-
 }
 playerScore();
-console.log(humanScore);
+console.log(humanScore);                //returns scores
 console.log(computerScore);
 // console.log(playerScore(result));
 
-
-  
+function playGame() {                                   //function that will play the game for 5 times
+    for(let i = 1; i < 5; i++){
+        whoWon = playerScore(result);
+    }
+}
+playGame();
