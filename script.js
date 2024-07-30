@@ -66,22 +66,22 @@ function playRound(humanSelection, computerSelection) {
     }
     return result;
 }
+
 console.log(playRound(humanSelection, computerSelection));
 
+var result = playRound(humanSelection, computerSelection);
 
-let round = playRound();
-
-function scoreBoard(round) {
-    let results; 
-    if (round === "tie") {
-        results = "no points";
-    }else if (round == "you win") {
+function playerScore(result){
+    if (result == "you win") {
         humanScore++;
-    }else if (round == "you lose") {
-        computerScore++;
-    }  
-    return results;
+    }else (result == "you lose")
+    computerScore++;
+
 }
-console.log(scoreBoard(round));
+playerScore();
 console.log(humanScore);
 console.log(computerScore);
+// console.log(playerScore(result));
+
+
+  
