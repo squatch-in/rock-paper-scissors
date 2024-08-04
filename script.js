@@ -84,8 +84,9 @@ function playerScore(whoWon){
 
 function playGame() {                                   
     for(let i = 0; i < 5; i++){
-        playerScore(whoWon); 
         playRound(getHumanChoice(), numConvert());
+        playerScore(whoWon); 
+        
     }
 }
 playGame();
