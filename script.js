@@ -73,8 +73,7 @@ function playerScore(whoWon){
     }else if (whoWon == "you lose") {
         computerScore++;
     }else if (whoWon == "tie"){
-        computerScore;
-        humanScore;
+    
     }
     return result;
 }
@@ -84,10 +83,8 @@ function playerScore(whoWon){
 
 function playGame() {                                   
     for(let i = 0; i < 5; i++){
-        playRound(getHumanChoice(), numConvert());
-        playerScore(whoWon); 
-        
-    }
+        playerScore(playRound(getHumanChoice(), numConvert())); 
+    }      
 }
 playGame();
 
